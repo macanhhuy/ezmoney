@@ -82,7 +82,11 @@ Ext.define('EZMoney.view.Main', {
            {
             title: 'My Account',
             group: 'Group 2',
-
+            handler: function() {
+                Ext.Msg.alert('Alert', 'My Account');
+                console.log(this);
+                //this.hide();
+            },
             items: [
             { xtype: 'accountcard' }
             ]
@@ -104,6 +108,11 @@ Ext.define('EZMoney.view.Main', {
         {
             title: 'Contact Us',
             group: 'Group 2',
+             handler: function() {
+                Ext.Msg.alert('Alert', 'Contact Us');
+                console.log(this);
+                //this.hide();
+            },
             items: [
             { xtype: 'contactcard' }
             ]

@@ -66,7 +66,14 @@ Ext.define('EZMoney.view.Toolbar', {
                         xtype: 'button',
                         iconMask: true,
                         iconCls: 'user',
-                        text: 'My Account'
+                        text: 'My Account',
+                        listeners: {
+                        tap: function(){
+
+                        Ext.Msg.alert('Alert', 'My Account!');
+
+                        }
+                    }
 
                     }
 

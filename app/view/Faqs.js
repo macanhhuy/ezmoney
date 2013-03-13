@@ -31,7 +31,7 @@ Ext.define('EZMoney.view.Faqs', {
                         //scroll: 'vertical',
                         scrollable: 'vertical',
 
-                        url: 'app/sample.html'
+                        url: 'content/faqs.html'
                     });
                         this.add(HTMLPanel);
                 },
@@ -39,42 +39,8 @@ Ext.define('EZMoney.view.Faqs', {
 
             },
                 {
-                xtype: 'toolbar',
-                docked: 'bottom',
-                items:[
-                {
-                    xtype: 'button',
-                    text:'Call'
-                },
-                {
-                        xtype: 'spacer'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Get Cash',
-                    cls: 'cashbtn',
-                    listeners: {
-                    tap: function(){
-                    var panel = Ext.create(Ext.Panel, {
-                        title: 'Get Cash',
-                        html: 'Hello, my name is Panel 2....',
-                    });
-                    console.log(this.parent.parent.parent);
-                    this.parent.parent.parent.setActiveItem('getcashcard');
-                    //this.parent.parent.parent.parent.parent.push(panel);
-                    //Ext.Viewport.add(Ext.create('EZMoney.view.Faqs'));
-                    //this.parent.parent.parent.setHtml(panel);
-                }
-            }
-                },
-                {
-                        xtype: 'spacer'
-                },
-                {
-                    xtype: 'button',
-                    text: 'Icon'
-                }
-                ]
+                xtype: 'menucard',
+                docked: 'bottom'
             }
         ]
     }

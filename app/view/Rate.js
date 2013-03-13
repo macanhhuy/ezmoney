@@ -38,7 +38,12 @@ Ext.define('EZMoney.view.Rate', {
                                     {text: 'Louisiana', value: 'Louisiana'},
                                     {text: 'Missouri',  value: 'Missouri'},
                                     {text: 'Ohio',  value: 'Ohio'}
-                                ]
+                                ],
+                                listeners: {
+                                change: function(field, value) {
+                                   Ext.Msg.alert(value);
+                                }
+                            }
 
                     }
                     ]
@@ -53,7 +58,10 @@ Ext.define('EZMoney.view.Rate', {
                         items: [
                          {
                         xtype: 'button',
-                        text:'Apply Now'
+                        text:'Apply Now',
+                        handler: function(){
+                                console.log(this.parent.parent.query('selectfield'));
+                            }
                         },
                         {
                             xtype: 'segmentedbutton',

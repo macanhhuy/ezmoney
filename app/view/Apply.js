@@ -38,6 +38,8 @@ Ext.define('EZMoney.view.Apply', {
                 {
                 xtype: 'panel',
                 id: 'applyform',
+                height: 100%,
+                layout: 'fit',
                 items:[
 
                     {
@@ -76,6 +78,24 @@ Ext.define('EZMoney.view.Apply', {
                                         xtype: 'numberfield',
                                         label: 'Mobile Phone #',
                                         name: 'mobile'
+                                    },
+                                     {
+                                        xtype: 'segmentedbutton',
+                                        layout: {
+                                        type: 'hbox',
+                                        align: 'center',
+                                        pack: 'center'
+                                            },
+                                         items: [
+
+                                        {
+                                            text: 'Next',
+                                             handler: function() {
+                                                console.log(this.parent.parent.parent.parent);
+                                                this.parent.parent.parent.parent.next(); }
+
+                                        }
+                                        ]
                                     }
                                     ]
                             }]
@@ -102,14 +122,110 @@ Ext.define('EZMoney.view.Apply', {
                                         name : 'step2',
                                         value: 'b',
                                         label: 'I AM C'
+                                    },
+                                    {
+                                        xtype: 'segmentedbutton',
+                                        layout: {
+                                        type: 'hbox',
+                                        align: 'center',
+                                        pack: 'center'
+                                    },
+                                         items: [
+                                        {
+                                            text: 'Back',
+                                             handler: function() {
+                                                console.log(this.parent.parent.parent);
+                                                this.parent.parent.parent.previous(); }
+                                        },
+                                        {
+                                            text: 'Next',
+                                             handler: function() {
+                                                console.log(this.parent.parent.parent);
+                                                this.parent.parent.parent.next(); }
+
+                                        }
+                                        ]
                                     }
+
                                     ]
-                            
+
                         },
                         {
-                            style: 'background: yellow',
-                            html: 'Step3'
-                        },
+                                xtype: 'fieldset',
+                                title: 'Step 3 - Personal Information',
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        name: 'address1',
+                                        label: 'Address 1'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'address2',
+                                        label: 'Address 2'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'city',
+                                        label: 'City'
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        label: 'Zip',
+                                        name: 'zip'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        label: 'Secondary Phone',
+                                        name: 'phone'
+                                    },
+                                    {
+                                        xtype: 'datepickerfield',
+                                        name: 'dob',
+                                        label: 'Date of Birth'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'ssn',
+                                        label: 'Social Security Number'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name: 'ssn2',
+                                        label: 'Comfirm Social Security Number'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'dln',
+                                        label: 'Driver License Number'
+                                    },
+                                     {
+                                        xtype: 'segmentedbutton',
+                                        layout: {
+                                        type: 'hbox',
+                                        align: 'center',
+                                        pack: 'center'
+                                            },
+                                         items: [
+
+                                            {
+                                                text: 'Back',
+                                                 handler: function() {
+                                                    console.log(this.parent.parent.parent);
+                                                    this.parent.parent.parent.previous(); }
+                                            },
+                                            {
+                                                text: 'Next',
+                                                 handler: function() {
+                                                    console.log(this.parent.parent.parent);
+                                                    this.parent.parent.parent.next(); }
+
+                                            }
+                                        ]
+                                    }
+                                    ]
+                            }
+                        ,
                         {
                             style: 'background: green',
                             html: 'Step4'
