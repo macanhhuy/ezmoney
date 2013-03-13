@@ -38,7 +38,7 @@ Ext.define('EZMoney.view.Apply', {
                 {
                 xtype: 'panel',
                 id: 'applyform',
-                height: 100%,
+                height: '100%',
                 layout: 'fit',
                 items:[
 
