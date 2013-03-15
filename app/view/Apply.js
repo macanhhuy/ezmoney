@@ -13,46 +13,51 @@ Ext.define('EZMoney.view.Apply', {
         items: [{
 
             xtype: 'toolbarcard',
-            initialize: function() {
-                //Ext.ComponentQuery.query('toolbar')[1].setTitle('Homepage');
+            docked: 'top'
 
-                 }
 
-        },
+            },
 
-             {
-                xtype: 'container',
-
-                height: '100%',
-                scrollable: 'vertical',
-                items:[
-                {
-                    xtype: 'titlebar',
-                    title: 'Apply',
-                    margin: '0 0 20px 0'
-                },
-                {
-                    style: 'padding: 0 10px',
-                    html: 'THIS IS AN EXPENSIVE FORM OF CREDIT. A SHORT TERM LOAN SHOULD BE USED FOR SHORT-TERM FINANCIAL NEEDS ONLY, NOT AS A LONG-TERM FINANCIAL SOLUTION. CUSTOMERS WITH CREDIT DIFFICULTIES SHOULD SEEK CREDIT COUNSELING OR MEET WITH A NONPROFIT FINANCIAL COUNSELING SERVICE IN THEIR COMMUNITY.'
-                },
-                {
+            {
                 xtype: 'panel',
-                id: 'applyform',
+                layout: 'vbox',
                 height: '100%',
-                layout: 'fit',
+                id: 'applyform',
                 items:[
-
                     {
-                    xtype: 'carousel',
-                    id: 'carousel-form',
+                        xtype: 'panel',
+                        flex: 1,
+                        items:[
+                            {
+                                xtype: 'titlebar',
+                                cls: 'main-heading',
+                                title: 'Apply'
+                            },
+                            {
+                                defaults: { styleHtmlContent: true },
+                                style: 'color: red;padding: 10px;',
 
+
+                                html: ' WARNING: IT IS IMPORTANT TO FILL OUT THIS FORM ACCURATELY. KNOWINGLY MAKING A FALSE STATEMENT ON A CREDIT APPLICATION IS A CRIME'
+                            }
+                        ]
+                    },
+
+                    //Carousel
+                     {
+                    xtype: 'carousel',
+                    flex: 2,
                     items:[
-                        {
-                          xtype: 'formpanel',
-                           items: [
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+
                             {
                                 xtype: 'fieldset',
+                                height: '100%',
                                 title: 'Step 1 - Contact Information',
+                                cls: 'sub-headline',
                                 items: [
                                     {
                                         xtype: 'textfield',
@@ -96,12 +101,19 @@ Ext.define('EZMoney.view.Apply', {
 
                                         }
                                         ]
-                                    }
-                                    ]
+
                             }]
-                        },
-                        {
+                        }
+                        ]
+                    },
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+                            {
                                 xtype: 'fieldset',
+                                height: '100%',
+                                cls: 'sub-headline',
                                 title: 'Step 2 - Military Service',
                                 items: [
                                     {
@@ -124,24 +136,28 @@ Ext.define('EZMoney.view.Apply', {
                                         label: 'I AM C'
                                     },
                                     {
-                                        xtype: 'segmentedbutton',
-                                        layout: {
-                                        type: 'hbox',
-                                        align: 'center',
-                                        pack: 'center'
-                                    },
+                                        xtype: 'panel',
+                                        layout: 'hbox',
                                          items: [
-                                        {
+                                        {   xtype: 'button',
                                             text: 'Back',
+                                            align: 'left',
+                                            width: 100,
+                                            ui: 'back',
                                              handler: function() {
-                                                console.log(this.parent.parent.parent);
-                                                this.parent.parent.parent.previous(); }
+
+                                                this.parent.parent.parent.parent.previous(); }
                                         },
                                         {
+                                            xtype: 'spacer'
+                                        },
+                                        {
+                                            xtype: 'button',
                                             text: 'Next',
+                                            align: 'right',
+                                            width: 100,
                                              handler: function() {
-                                                console.log(this.parent.parent.parent);
-                                                this.parent.parent.parent.next(); }
+                                               this.parent.parent.parent.parent.next(); }
 
                                         }
                                         ]
@@ -149,9 +165,17 @@ Ext.define('EZMoney.view.Apply', {
 
                                     ]
 
-                        },
-                        {
+                        }
+                        ]
+                    },
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+                         {
                                 xtype: 'fieldset',
+                                height: '100%',
+                                cls: 'sub-headline',
                                 title: 'Step 3 - Personal Information',
                                 items: [
                                     {
@@ -200,47 +224,515 @@ Ext.define('EZMoney.view.Apply', {
                                         label: 'Driver License Number'
                                     },
                                      {
-                                        xtype: 'segmentedbutton',
+                                        xtype: 'panel',
                                         layout: {
-                                        type: 'hbox',
-                                        align: 'center',
-                                        pack: 'center'
+                                        type: 'hbox'
                                             },
                                          items: [
 
                                             {
+                                                xtype: 'button',
                                                 text: 'Back',
+                                                ui: 'back',
+                                                width: 100,
                                                  handler: function() {
-                                                    console.log(this.parent.parent.parent);
-                                                    this.parent.parent.parent.previous(); }
+                                                    this.parent.parent.parent.parent.previous(); }
+                                            },
+                                             {
+                                            xtype: 'spacer'
                                             },
                                             {
+                                                xtype: 'button',
                                                 text: 'Next',
+                                                width: 100,
                                                  handler: function() {
-                                                    console.log(this.parent.parent.parent);
-                                                    this.parent.parent.parent.next(); }
+                                                    this.parent.parent.parent.parent.next(); }
 
                                             }
                                         ]
                                     }
                                     ]
                             }
-                        ,
-                        {
-                            style: 'background: green',
-                            html: 'Step4'
-                        },
-                        {
-                            style: 'background: pink',
-                            html: 'Step5'
+                        ]
+                    },
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+                         {
+                                xtype: 'fieldset',
+                                height: '100%',
+                                cls: 'sub-headline',
+                                title: 'Step 4 - Income Information',
+                                items: [
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'ji',
+                                        label: 'Job Income',
+                                        checked: true
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'ss',
+                                        label: 'Social Security'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'se',
+                                        label: 'Self Employed'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'rp',
+                                        label: 'Retirement/Pension'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name: 'eployeename',
+                                        label: 'Employee Name*'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        name: 'year',
+                                        label: 'Year'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        name: 'month',
+                                        label: 'Month'
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        label: 'Work Number',
+                                        name: 'wnumber'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        label: 'Work Contact Number',
+                                        name: 'wcnumber'
+                                    },
+                                    {
+                                        xtype: 'label',
+                                        html: 'How often are you paid?'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'se',
+                                        label: 'Weekly'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'se',
+                                        label: 'Twice a Month'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'se',
+                                        label: 'Bi-Weekly'
+                                    },
+                                    {
+                                        xtype: 'radiofield',
+                                        name : 'step4',
+                                        value: 'se',
+                                        label: 'Monthly'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'ssn',
+                                        label: 'Take Home Paycheck*'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name: 'ssn2',
+                                        label: 'Additional Monthly Income'
+                                    },
+                                     {
+                                        xtype: 'textfield',
+                                        name: 'dln',
+                                        label: 'Driver License Number'
+                                    },
+                                    {
+                                        xtype: 'selectfield',
+                                        label: 'Additional Income Source',
+                                        options: [
+                                            {text: 'First Option',  value: 'first'},
+                                            {text: 'Second Option', value: 'second'},
+                                            {text: 'Third Option',  value: 'third'}
+                                        ]
+                                    },
+                                                         {
+                                        xtype: 'panel',
+                                        layout: {
+                                        type: 'hbox'
+                                            },
+                                         items: [
+
+                                            {
+                                                xtype: 'button',
+                                                text: 'Back',
+                                                ui: 'back',
+                                                width: 100,
+                                                 handler: function() {
+                                                    this.parent.parent.parent.parent.previous(); }
+                                            },
+                                             {
+                                                xtype: 'spacer'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                text: 'Next',
+                                                width: 100,
+                                                 handler: function() {
+                                                    this.parent.parent.parent.parent.next(); }
+
+                                            }
+                                        ]
+                                    }
+                                    ]
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+                         {
+                                xtype: 'fieldset',
+                                height: '100%',
+                                cls: 'sub-headline',
+                                title: 'Step 5 - Bank Information',
+                                items: [
+                                    {
+                                        xtype: 'numberfield',
+                                        name: 'routingnumber',
+                                        label: 'Routing Number'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        name: 'ckcnumber',
+                                        label: 'Checking Account Number'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        name: 'ckcnumber2',
+                                        label: 'Confirm Checking Account Number'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        label: 'Name of Bank',
+                                        name: 'nameofbank'
+                                    },
+                                    {
+                                         html: 'How long had you paid this account'
+                                    },
+                                     {
+                                        xtype: 'numberfield',
+                                        label: 'Month',
+                                        name: 'month'
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        name: 'year',
+                                        label: 'Year'
+                                    },
+                                    {
+                                        html: 'Does this account has deposit?'
+                                    },
+                                     {
+                                        xtype: 'radiofield',
+                                        name: 'deposit',
+                                        value: 'yes',
+                                        label: 'Yes'
+                                    },
+                                     {
+                                        xtype: 'radiofield',
+                                        name: 'deposit',
+                                        value: 'no',
+                                        label: 'No'
+                                    },
+                                    {
+                                        xtype: 'panel',
+                                        layout: {
+                                        type: 'hbox'
+                                            },
+                                         items: [
+
+                                            {
+                                                xtype: 'button',
+                                                text: 'Back',
+                                                ui: 'back',
+                                                width: 100,
+                                                 handler: function() {
+                                                    this.parent.parent.parent.parent.previous(); }
+                                            },
+                                             {
+                                            xtype: 'spacer'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                text: 'Next',
+                                                width: 100,
+                                                 handler: function() {
+                                                    this.parent.parent.parent.parent.next(); }
+
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        xtype: 'panel',
+                                        scrollable: 'vertical',
+                                        items:[
+                                         {
+                                        xtype: 'fieldset',
+                                        height: '100%',
+                                        cls: 'sub-headline',
+                                        title: 'Step 4 - Income Information',
+                                        items: [
+                                            {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'ji',
+                                            label: 'Job Income',
+                                            checked: true
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'ss',
+                                            label: 'Social Security'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'se',
+                                            label: 'Self Employed'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'rp',
+                                            label: 'Retirement/Pension'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'eployeename',
+                                            label: 'Employee Name*'
+                                        },
+                                         {
+                                            xtype: 'numberfield',
+                                            name: 'year',
+                                            label: 'Year'
+                                        },
+                                         {
+                                            xtype: 'numberfield',
+                                            name: 'month',
+                                            label: 'Month'
+                                        },
+                                        {
+                                            xtype: 'numberfield',
+                                            label: 'Work Number',
+                                            name: 'wnumber'
+                                        },
+                                         {
+                                            xtype: 'numberfield',
+                                            label: 'Work Contact Number',
+                                            name: 'wcnumber'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            html: 'How often are you paid?'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'se',
+                                            label: 'Weekly'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'se',
+                                            label: 'Twice a Month'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'se',
+                                            label: 'Bi-Weekly'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            name : 'step4',
+                                            value: 'se',
+                                            label: 'Monthly'
+                                        },
+                                         {
+                                            xtype: 'textfield',
+                                            name: 'ssn',
+                                            label: 'Take Home Paycheck*'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'ssn2',
+                                            label: 'Additional Monthly Income'
+                                        },
+                                         {
+                                            xtype: 'textfield',
+                                            name: 'dln',
+                                            label: 'Driver License Number'
+                                        },
+                                        {
+                                            xtype: 'selectfield',
+                                            label: 'Additional Income Source',
+                                            options: [
+                                                {text: 'First Option',  value: 'first'},
+                                                {text: 'Second Option', value: 'second'},
+                                                {text: 'Third Option',  value: 'third'}
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'panel',
+                                            layout: {
+                                            type: 'hbox'
+                                                },
+                                             items: [
+
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Back',
+                                                    ui: 'back',
+                                                    width: 100,
+                                                     handler: function() {
+                                                        this.parent.parent.parent.parent.previous(); }
+                                                },
+                                                 {
+                                                    xtype: 'spacer'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Next',
+                                                    width: 100,
+                                                     handler: function() {
+                                                        this.parent.parent.parent.parent.next(); }
+
+                                                }
+                                            ]
+                                        }
+                                    ]
+                            }
+                        ]
+                    }
+
+                    ]
+                    }
+                    ]
+                    },
+                    {
+                        xtype: 'panel',
+                        scrollable: 'vertical',
+                        items:[
+                            {
+                                xtype: 'fieldset',
+                                height: '100%',
+                                cls: 'sub-headline',
+                                title: 'Step 6 - Account Information',
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        name : 'password',
+                                        label: 'Password'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name : 'password2',
+                                        label: 'Confirm Password'
+                                    },
+                                     {
+                                        xtype: 'selectfield',
+                                        label: 'Choose a Secret Question',
+                                        options: [
+                                            {text: 'First Option',  value: 'first'},
+                                            {text: 'Second Option', value: 'second'},
+                                            {text: 'Third Option',  value: 'third'}
+                                        ]
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name : 'answer',
+                                        label: 'Answer'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        name : 'promotecode',
+                                        label: 'Promote Code'
+                                    },
+                                    {
+                                        xtype: 'checkboxfield',
+                                        name : 'agree1',
+                                        label: 'By Clicking "I Agree"',
+                                        value: 'agree1'
+                                    },
+                                    {
+                                        xtype: 'checkboxfield',
+                                        name : 'agree2',
+                                        label: 'By Clicking "I Agree"'
+                                    },
+                                    {
+                                        xtype: 'panel',
+                                        layout: 'hbox',
+                                         items: [
+                                        {   xtype: 'button',
+                                            text: 'Back',
+                                            align: 'left',
+                                            width: 100,
+                                            ui: 'back',
+                                             handler: function() {
+
+                                                this.parent.parent.parent.parent.previous(); }
+                                        },
+                                        {
+                                            xtype: 'spacer'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            text: 'Apply Now',
+                                            ui:'decline',
+                                            align: 'right',
+                                            width: 100,
+                                             handler: function() {
+                                              var form = Ext.ComponentQuery.query('formpanel')[0],
+                                             values = form.getValues();
+                                             console.log(values);
+
+
+
+                    }
+
                         }
                     ]
                     }
+
+                                    ]
+
+                        }
+                        ]
+                    }
+                    ]
+                }
+                //End Carousel
+
                 ]
-                }]
+
 
             },
-             {
+            {
                 xtype: 'menucard',
                 docked: 'bottom'
             }

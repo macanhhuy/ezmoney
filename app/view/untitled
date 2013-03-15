@@ -1,0 +1,51 @@
+Ext.define('EZMoney.view.Apply', {
+    extend: 'Ext.Container',
+
+    requires: [
+        'Ext.SegmentedButton',
+        'EZMoney.view.Toolbar',
+        'Ext.Ajax',
+        'HTMLPanel'
+    ],
+    xtype: 'applycard',
+    config: {
+
+        items: [{
+
+            xtype: 'toolbarcard',
+            initialize: function() {
+                //Ext.ComponentQuery.query('toolbar')[1].setTitle('Homepage');
+
+                 }
+
+            },
+
+            {
+                xtype: 'panel',
+                fullscreen: true,
+                layout: 'vbox',
+                scrollable: 'vertical',
+                height: '100%',
+                id: 'applyform',
+                items:[
+                {
+                    html:'test1',
+                    flex: 1
+                },
+                {
+                    html: 'test 2',
+                    flex: 1
+                }
+                ]
+
+
+
+            },
+             {
+                xtype: 'menucard',
+                docked: 'bottom'
+            }
+
+        ]
+    }
+});

@@ -61,6 +61,7 @@ Ext.define('EZMoney.view.Main', {
         // },
 
         items: [
+     
 
         {
             title: 'Apply Now',

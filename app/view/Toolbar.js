@@ -25,7 +25,7 @@ Ext.define('EZMoney.view.Toolbar', {
             },
             {
                 xtype: 'toolbar',
-                ui: 'light',
+                cls: 'sub-head',
                 docked: 'top',
                 scrollable: {
                     direction: 'horizontal',
