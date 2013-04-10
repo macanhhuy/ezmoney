@@ -102,7 +102,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
                     handler: function(){
                         var me =  Ext.ComponentQuery.query('slidenavigationview');
                          me[0].fireAction('close', [me[0], 0, 80], 'moveContainer', me[0]);
-                        console.log(this._text +'xxx'+ this.id);
+
                     }
                 }]
             }]
@@ -500,7 +500,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
             // TODO: "value", This doesn't work as is, but I'd like to disable the underlying component
             //       once dragging has started...
             //this.doMaskItem(this.container.getActiveItem(), true);
-            return true;
+            return false;
         }
 
         if (slideSelector) {

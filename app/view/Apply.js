@@ -26,7 +26,7 @@ Ext.define('EZMoney.view.Apply', {
                 items:[
                     {
                         xtype: 'panel',
-                        flex: 1,
+                        flex: !Ext.os.is.Phone?1:2,
                         items:[
                             {
                                 xtype: 'titlebar',
@@ -36,8 +36,7 @@ Ext.define('EZMoney.view.Apply', {
                             {
                                 defaults: { styleHtmlContent: true },
                                 style: 'color: red;padding: 10px;',
-
-
+                               
                                 html: ' WARNING: IT IS IMPORTANT TO FILL OUT THIS FORM ACCURATELY. KNOWINGLY MAKING A FALSE STATEMENT ON A CREDIT APPLICATION IS A CRIME'
                             }
                         ]

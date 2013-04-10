@@ -11398,3 +11398,6 @@ input[type="search"]::-webkit-search-cancel-button {
 #ext-toolbar-1{
   background: #d9e8f5;
 }
+.x-carousel-inner{
+  margin-top: 20px;
+}

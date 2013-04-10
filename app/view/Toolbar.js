@@ -10,6 +10,8 @@ Ext.define('EZMoney.view.Toolbar', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
+
+                style: 'display:block',
                 ui: 'neutral',
 
                 items:[
@@ -19,7 +21,7 @@ Ext.define('EZMoney.view.Toolbar', {
                     src: 'resources/images/logo.png',
                     height: 24,
                     width: 139,
-                    margin: '0 auto'
+                    margin: '7px auto 0 auto'
                 }
                 ]
             },
@@ -83,6 +85,80 @@ Ext.define('EZMoney.view.Toolbar', {
             }
         ] : [
             {
+                xtype: 'toolbar',
+                docked: 'top',
+
+                style: 'display:block',
+                ui: 'neutral',
+
+                items:[
+                {
+                    xtype: 'image',
+                    align: 'center',
+                    src: 'resources/images/logo.png',
+                    height: 24,
+                    width: 139,
+                    margin: '7px auto 0 auto'
+                }
+                ]
+            },
+            {
+                xtype: 'toolbar',
+                cls: 'sub-head',
+                docked: 'top',
+                scrollable: {
+                    direction: 'horizontal',
+                    indicators: false
+                },
+                initialize: function() {
+                //console.log(this);
+                },
+                items: [
+                 {
+                         xtype: 'button',
+                        iconMask: true,
+                        iconCls: 'more',
+                        handler: function() {
+                            var me =  Ext.ComponentQuery.query('slidenavigationview');
+                            console.log(me[0].container.getCls().indexOf('open'));
+                            if(me[0].container.getCls().indexOf('open')<0){
+                                me[0].fireAction('open', [me[0], 300, 300], 'moveContainer', me[0]);
+                                me[0].container.addCls('open');
+
+                            }
+                            else {
+                                 me[0].fireAction('close', [me[0], 0, 300], 'moveContainer', me[0]);
+
+                                me[0].container.removeCls('open');
+                            }
+
+
+
+                        }
+                    },
+                     {
+                        xtype: 'spacer'
+                    },
+
+
+                    {
+                        xtype: 'button',
+                        iconMask: true,
+                        iconCls: 'user',
+                        text: 'My Account',
+                        listeners: {
+                        tap: function(){
+
+                        Ext.Msg.alert('Alert', 'My Account!');
+
+                        }
+                    }
+
+                    }
+
+
+
+                ]
             }
         ]
     }

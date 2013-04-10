@@ -36,7 +36,7 @@ Ext.define('EZMoney.view.Main', {
             selector: 'toolbar'
         },
         list: {
-            maxDrag: 400,
+            maxDrag: 320,
             width: 300,
             grouped: false
 
@@ -61,7 +61,7 @@ Ext.define('EZMoney.view.Main', {
         // },
 
         items: [
-     
+
 
         {
             title: 'Apply Now',
